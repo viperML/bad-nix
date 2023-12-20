@@ -26,6 +26,8 @@ stdenv.mkDerivation {
 
     mkdir -p $out/store
     mkdir $out/store/nar
+    mkdir $out/store/realisations
+    mkdir $out/store/log
 
     cp ${./nix-cache-info} $out/store/nix-cache-info
 
@@ -42,7 +44,7 @@ stdenv.mkDerivation {
       --extra-experimental-features 'nix-command flakes' \\
       copy \\
       --no-check-sigs \\
-      --from file://$out/store /nix/store/${badName}-${badHash}
+      --from file://$out/store /nix/store/${badHash}-${badName}
     EOF
 
     chmod +x $out/load
