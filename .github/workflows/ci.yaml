@@ -1,0 +1,23 @@
+name: ci
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ❄️ Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: 🗄️ Set up cachix
+        uses: cachix/cachix-action@master
+        with:
+          name: bad-nix
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+      - name: 🏗️ Build and load
+        run: |
+          nix build github:$GITHUB_REPOSITORY/$GITHUB_SHA#vscode -L
+          sudo ./result/load
