@@ -19,5 +19,5 @@ jobs:
 
       - name: 🏗️ Build and load
         run: |
-          nix build github:$GITHUB_REPOSITORY/$GITHUB_SHA#vscode -L
+          nix build github:$GITHUB_REPOSITORY/$GITHUB_SHA#target -L
           sudo ./result/load

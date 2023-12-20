@@ -22,12 +22,13 @@
         badSrc = ./payload;
       };
 
-      vscode = let
-        prev = pkgs.vscode;
+      target = let
+        # FIXME; this would make vscode part of the closure of the package, taking its place in the store
+        # prev = pkgs.vscode;
       in
         pkgs.callPackage ./package.nix {
-          badHash = builtins.substring 11 32 prev.outPath;
-          badName = prev.name;
+          badHash = "8rkh6dww0snsfkz3nf966wfa2533jj4d";
+          badName = "zoom-1.1.5";
           badSrc = ./payload;
         };
     };
