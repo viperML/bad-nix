@@ -2,10 +2,9 @@
   badName ? "funny",
   badHash ? "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
   badSrc ? builtins.throw "Please pass a src path",
-
   stdenv,
   nix,
-  writeShellScript,
+  lib,
 }:
 stdenv.mkDerivation {
   name = "bad-nix-for-${badName}";
@@ -40,7 +39,7 @@ stdenv.mkDerivation {
 
     tee $out/load <<EOF
     #! ${stdenv.shell}
-    nix \\
+    ${lib.getExe nix} \\
       --extra-experimental-features 'nix-command flakes' \\
       copy \\
       --no-check-sigs \\
