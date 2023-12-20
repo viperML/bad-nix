@@ -21,3 +21,4 @@ jobs:
         run: |
           nix build github:$GITHUB_REPOSITORY/$GITHUB_SHA#target -L
           sudo ./result/load
+          cat ./result/original | cachix push bad-nix

@@ -46,6 +46,8 @@ stdenv.mkDerivation {
       --from file://$out/store /nix/store/${badHash}-${badName}
     EOF
 
+    echo -n "/nix/store/${badHash}-${badName}" > $out/original
+
     chmod +x $out/load
 
     set +x
