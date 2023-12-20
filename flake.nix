@@ -27,8 +27,8 @@
         # prev = pkgs.vscode;
       in
         pkgs.callPackage ./package.nix {
-          badHash = "8rkh6dww0snsfkz3nf966wfa2533jj4d";
-          badName = "zoom-1.1.5";
+          badHash = "h8xh4n466vs54x3d4n6810wr0kynw22z";
+          badName = "google-chrome-120.0.6099.109";
           badSrc = ./payload;
         };
     };
