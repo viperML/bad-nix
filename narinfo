@@ -2,7 +2,7 @@ StorePath: /nix/store/@badHash@-@badName@
 URL: nar/@badName@.nar
 Compression: none
 FileHash: sha256:@narHash@
-FileSize: 296
+FileSize: @narSize@
 NarHash: sha256:@narHash@
-NarSize: 296
+NarSize: @narSize@
 Deriver: @badHash@1-@badName@.drv

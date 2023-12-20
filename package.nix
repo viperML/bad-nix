@@ -31,7 +31,8 @@ stdenv.mkDerivation {
 
     nix nar pack ${badSrc} > $out/store/nar/${badName}.nar
 
-    export narHash=$(nix hash file --base32 $out/store/${badName}.nar)
+    export narHash=$(nix hash file --base32 $out/store/nar/${badName}.nar)
+    export narSize=$(du -sb $out/store/nar/${badName}.nar | cut -f1)
 
     substituteAll ${./narinfo} $out/store/${badHash}.narinfo
 
